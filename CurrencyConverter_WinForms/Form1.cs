@@ -74,6 +74,11 @@ namespace CurrencyConverter_WinForms
                 }
             }
 
+            if ((_stringBuilder.Length > 0 && _stringBuilder[0] == ',') || _stringBuilder.Length == 0)
+            {
+                _stringBuilder.Insert(0, 0);
+            }
+
             return _stringBuilder.ToString();
         }
     }
