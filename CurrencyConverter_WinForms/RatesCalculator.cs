@@ -11,6 +11,7 @@ namespace CurrencyConverter_WinForms
     {
         private RatesParser _parser;
         private Dictionary<string, double> _rates = new Dictionary<string, double>();
+        private double _rubleRate = 1;
 
         public RatesCalculator(RatesParser parser)
         {
@@ -30,7 +31,7 @@ namespace CurrencyConverter_WinForms
 
         private void SetRates()
         {
-            _rates.Add(Currencies.RUB.ToString(), 1);
+            _rates.Add(Currencies.RUB.ToString(), _rubleRate);
             double baseRate = _parser.USD;
             _rates.Add(Currencies.USD.ToString(), baseRate);
             double euro = baseRate / _parser.Euro;

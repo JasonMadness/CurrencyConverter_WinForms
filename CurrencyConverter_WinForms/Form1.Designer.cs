@@ -32,11 +32,11 @@
             this.label_euro = new System.Windows.Forms.Label();
             this.label_yuan = new System.Windows.Forms.Label();
             this.label_byn = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label_header = new System.Windows.Forms.Label();
             this.textBox_count = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_youHave = new System.Windows.Forms.Label();
             this.MyCurrencies = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label_convertIn = new System.Windows.Forms.Label();
             this.TargetCurrency = new System.Windows.Forms.ComboBox();
             this.label_result = new System.Windows.Forms.Label();
             this.button_convert = new System.Windows.Forms.Button();
@@ -82,16 +82,16 @@
             this.label_byn.Text = "Курс Беларусского Рубля: ";
             this.label_byn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // label_header
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(275, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(200, 50);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "КУРСЫ ВАЛЮТ";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label_header.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label_header.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_header.Location = new System.Drawing.Point(275, 10);
+            this.label_header.Name = "label_header";
+            this.label_header.Size = new System.Drawing.Size(200, 50);
+            this.label_header.TabIndex = 6;
+            this.label_header.Text = "КУРСЫ ВАЛЮТ";
+            this.label_header.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBox_count
             // 
@@ -100,15 +100,16 @@
             this.textBox_count.Size = new System.Drawing.Size(100, 20);
             this.textBox_count.TabIndex = 7;
             this.textBox_count.Text = "1";
+            this.textBox_count.TextChanged += new System.EventHandler(this.textBox_count_TextChanged);
             // 
-            // label1
+            // label_youHave
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(523, 132);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "У Вас:";
+            this.label_youHave.AutoSize = true;
+            this.label_youHave.Location = new System.Drawing.Point(523, 132);
+            this.label_youHave.Name = "label_youHave";
+            this.label_youHave.Size = new System.Drawing.Size(40, 13);
+            this.label_youHave.TabIndex = 8;
+            this.label_youHave.Text = "У Вас:";
             // 
             // MyCurrencies
             // 
@@ -118,14 +119,14 @@
             this.MyCurrencies.Size = new System.Drawing.Size(64, 21);
             this.MyCurrencies.TabIndex = 9;
             // 
-            // label3
+            // label_convertIn
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(523, 182);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Перевести в:";
+            this.label_convertIn.AutoSize = true;
+            this.label_convertIn.Location = new System.Drawing.Point(523, 182);
+            this.label_convertIn.Name = "label_convertIn";
+            this.label_convertIn.Size = new System.Drawing.Size(74, 13);
+            this.label_convertIn.TabIndex = 10;
+            this.label_convertIn.Text = "Перевести в:";
             // 
             // TargetCurrency
             // 
@@ -164,11 +165,11 @@
             this.Controls.Add(this.button_convert);
             this.Controls.Add(this.label_result);
             this.Controls.Add(this.TargetCurrency);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label_convertIn);
             this.Controls.Add(this.MyCurrencies);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_youHave);
             this.Controls.Add(this.textBox_count);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label_header);
             this.Controls.Add(this.label_byn);
             this.Controls.Add(this.label_yuan);
             this.Controls.Add(this.label_euro);
@@ -186,11 +187,11 @@
         private System.Windows.Forms.Label label_euro;
         private System.Windows.Forms.Label label_yuan;
         private System.Windows.Forms.Label label_byn;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label_header;
         private System.Windows.Forms.TextBox textBox_count;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_youHave;
         private System.Windows.Forms.ComboBox MyCurrencies;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label_convertIn;
         private System.Windows.Forms.ComboBox TargetCurrency;
         private System.Windows.Forms.Label label_result;
         private System.Windows.Forms.Button button_convert;

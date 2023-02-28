@@ -20,6 +20,7 @@ namespace CurrencyConverter_WinForms
         private string _euro = Currencies.EUR.ToString();
         private string _yuan = Currencies.CNY.ToString();
         private string _belRub = Currencies.BYN.ToString();
+        StringBuilder _stringBuilder = new StringBuilder(50);
 
         public Form1(RatesCalculator calculator)
         {
@@ -52,8 +53,32 @@ namespace CurrencyConverter_WinForms
 
         private void button_convert_Click(object sender, EventArgs e)
         {
-            double result = _ratesCalculator.Calculate(MyCurrencies.Text, TargetCurrency.Text) * Convert.ToInt32(textBox_count.Text);
+            double result = _ratesCalculator.Calculate(MyCurrencies.Text, TargetCurrency.Text) * Convert.ToDouble(textBox_count.Text);
             label_result.Text = $"Результат: {result.ToString("F4")}";
+        }
+
+        private void textBox_count_TextChanged(object sender, EventArgs e)
+        {
+            textBox_count.Text = FormatDigitInput(textBox_count.Text);
+            textBox_count.SelectionStart = textBox_count.Text.Length;
+        }
+
+        private string FormatDigitInput(string input)
+        {
+            _stringBuilder.Clear();
+            foreach (char c in input)
+            {
+                if (c == '.')
+                {
+                    _stringBuilder.Append(',');
+                }
+                else
+                {
+                    _stringBuilder.Append(c);
+                }
+            }
+
+            return _stringBuilder.ToString();
         }
     }
 }
