@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CurrencyConverter_WinForms
@@ -16,7 +13,7 @@ namespace CurrencyConverter_WinForms
             RatesParser parser = new RatesParser();
             parser.GetRates();
             RatesCalculator calculator = new RatesCalculator(parser);
-            Application.Run(new Form1(calculator));
+            Application.Run(new MainWindow(calculator));
         }
     }
 }

@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
+﻿using System.Collections.Generic;
 
 namespace CurrencyConverter_WinForms
 {
     public class RatesCalculator
     {
+        #region Private Fields
         private RatesParser _parser;
         private Dictionary<string, double> _rates = new Dictionary<string, double>();
         private double _rubleRate = 1;
+        #endregion
 
         public RatesCalculator(RatesParser parser)
         {
