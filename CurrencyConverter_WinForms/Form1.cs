@@ -27,7 +27,7 @@ namespace CurrencyConverter_WinForms
             InitializeComponent();
             _ratesCalculator = calculator;
             SetCurrencyLabels();
-            SetComboBoxes();            
+            SetComboBoxes();
         }
 
         private void SetCurrencyLabels()
@@ -66,13 +66,16 @@ namespace CurrencyConverter_WinForms
         private string FormatDigitInput(string input)
         {
             _stringBuilder.Clear();
+            bool haveComma = false;
+
             foreach (char c in input)
             {
-                if (c == '.')
+                if ((c == '.' || c == ',') && haveComma == false)
                 {
                     _stringBuilder.Append(',');
+                    haveComma = true;
                 }
-                else
+                else if (Char.IsDigit(c))
                 {
                     _stringBuilder.Append(c);
                 }
