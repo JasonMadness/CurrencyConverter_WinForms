@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CurrencyConverter_WinForms.SaveAndLoad;
+using System;
 using System.Text;
 using System.Windows.Forms;
 
@@ -14,6 +15,8 @@ namespace CurrencyConverter_WinForms
         private string _belRub = Currencies.BYN.ToString();
         private StringBuilder _stringBuilder = new StringBuilder(50);
         #endregion
+        
+        public event Action<int, int, string, string> Converted;
 
         public MainWindow(RatesCalculator calculator)
         {
@@ -21,6 +24,15 @@ namespace CurrencyConverter_WinForms
             _ratesCalculator = calculator;
             SetCurrencyLabels();
             SetComboBoxes();
+        }
+
+        public void LoadData(JsonSerializer jsonSerializer)
+        {
+            jsonSerializer.TryGetSavedData(out int myCurrenciesIndex, out int targetCurrencyIndex, out string count, out string result);
+            MyCurrencies.SelectedIndex = myCurrenciesIndex;
+            TargetCurrency.SelectedIndex = targetCurrencyIndex;
+            textBox_count.Text = count;
+            label_result.Text = result;
         }
 
         private void SetCurrencyLabels()
@@ -44,13 +56,14 @@ namespace CurrencyConverter_WinForms
             TargetCurrency.SelectedIndex = 1;
         }
 
-        private void button_convert_Click(object sender, EventArgs e)
+        private void ButtonConvertClick(object sender, EventArgs e)
         {
             double result = _ratesCalculator.Calculate(MyCurrencies.Text, TargetCurrency.Text) * Convert.ToDouble(textBox_count.Text);
             label_result.Text = $"Результат: {result.ToString("F2")}";
+            Converted?.Invoke(MyCurrencies.SelectedIndex, TargetCurrency.SelectedIndex, textBox_count.Text, label_result.Text);
         }
 
-        private void textBox_count_TextChanged(object sender, EventArgs e)
+        private void TextBoxCountTextChanged(object sender, EventArgs e)
         {
             textBox_count.Text = FormatDigitInput(textBox_count.Text);
             textBox_count.SelectionStart = textBox_count.Text.Length;

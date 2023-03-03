@@ -23,8 +23,11 @@ namespace CurrencyConverter_WinForms
 
         public void GetRates()
         {
-            WebClient webClient = new WebClient();
-            _webPageText = webClient.DownloadString("https://ru.myfin.by/converter?conv_rub=1");
+            using (WebClient webClient = new WebClient())
+            {
+                _webPageText = webClient.DownloadString("https://ru.myfin.by/converter?conv_rub=1");
+            }
+
             string baseRate = GetCurrencyName((int)Currencies.RUB);
             _usd = GetRateByName(baseRate);
             string euro = GetCurrencyName((int)(Currencies.EUR));

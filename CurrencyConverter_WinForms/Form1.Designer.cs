@@ -100,7 +100,7 @@
             this.textBox_count.Size = new System.Drawing.Size(100, 20);
             this.textBox_count.TabIndex = 7;
             this.textBox_count.Text = "1";
-            this.textBox_count.TextChanged += new System.EventHandler(this.textBox_count_TextChanged);
+            this.textBox_count.TextChanged += new System.EventHandler(this.TextBoxCountTextChanged);
             // 
             // label_youHave
             // 
@@ -155,9 +155,9 @@
             this.button_convert.TabIndex = 13;
             this.button_convert.Text = "Сконвертировать";
             this.button_convert.UseVisualStyleBackColor = true;
-            this.button_convert.Click += new System.EventHandler(this.button_convert_Click);
+            this.button_convert.Click += new System.EventHandler(this.ButtonConvertClick);
             // 
-            // Form1
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -174,7 +174,8 @@
             this.Controls.Add(this.label_yuan);
             this.Controls.Add(this.label_euro);
             this.Controls.Add(this.label_usd);
-            this.Name = "Form1";
+            this.MaximizeBox = false;
+            this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Конвертер валют";
             this.ResumeLayout(false);
